@@ -1,0 +1,174 @@
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #4d4d5d;
+}
+.container {
+	margin: 0 auto;
+	max-width: 860px;
+	padding: 50px 30px;
+	width: 100%;
+}
+.searchInput {
+	margin-bottom: 30px;
+}
+.searchInput .__input {
+	width: 100%;
+	border: 1px solid #8E9AAF;
+	padding: 10px 23px;
+  border-radius: 22px;
+  font-size: 18px;
+	transition: .1s ease all;
+}
+.searchInput .__input:focus {
+	outline: none;
+	box-shadow: 0 0 10px rgba(0,0,0,.075);
+}
+.searchInput .__input::placeholder {
+	color: #8E9AAF;
+}
+.sortToggle {
+	color: #8E9AAF;
+	font-size: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
+}
+.sortToggle .__label {
+	font-weight: normal;
+}
+.sortToggle .__toggle {
+	width: 80px;
+	height: 18px;
+	border-radius: 10px;
+	border: 1px solid #8E9AAF;
+	margin: 0 30px;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+.sortToggle .__toggleThumb {
+	position: absolute;
+	width: 55%;
+	top: -1px;
+	bottom: -1px;
+	left: -1px;
+	border-radius: inherit;
+	border: 1px solid #8E9AAF;
+	background-color: #DEE2FF;
+	transition: .1s ease-in all;
+}
+.sortToggle .__toggleInput {
+	visibility: hidden;
+}
+.sortToggle .__toggleInput:checked + .__toggleThumb {
+	left: 47%;
+}
+.workOrderList {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	list-style-type: none;
+	padding: 0 20px;
+}
+.workOrderListItem {
+	border: 1px solid #667287;
+	width: calc(50% - 40px);
+	margin: 20px;
+	padding: 15px 30px;
+	font-size: 13px;
+	border-radius: 3px;
+  background: rgba(0,0,0,0.02);
+}
+.workOrderListItem .__order {
+	font-size: 16px;
+	text-align: center;
+}
+.workOrderListItem .__description {
+	margin: 20px auto;
+	display: block;
+	width: 85%;
+}
+.workOrderListItem .__deadline {
+	text-align: right;
+	opacity: .8;
+	font-style: italic;
+}
+.workOrderListItem .__worker {
+	margin-bottom: 15px;
+}
+.workerInfoItem {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	font-size: 12px;
+}
+.workerInfoItem .__avatar {
+	width: 80px;
+	height: 80px;
+	border-radius: 100%;
+	border: 1px solid #667287;
+	flex-shrink: 0;
+}
+.workerInfoItem .__info {
+	margin-left: 15px;
+}
+.workerInfoItem .__name {
+	margin: 0 0 3px;
+	font-size: 14px;
+}
+.workerInfoItem .__companyName {
+	margin: 0 0 3px;
+}
+.workerInfoItem .__email {
+	margin: 0 0 3px;
+}
+.workOrderList .__loader {
+	margin: 50px
+}
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 6px;
+  box-sizing: border-box;
+  border: 26px solid #DEE2FF;
+  border-color: #DEE2FF transparent #DEE2FF transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+  0% {
+		transform: rotate(0);
+		animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+		transform: rotate(900deg);
+		animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+		transform: rotate(1800deg);
+  }
+}
+@media only screen and (max-width: 800px) {
+  /* For mobile devices: */
+	.workOrderListItem {
+		width: calc(100% - 40px);
+		max-width: 400px;
+	}
+}
+@media only screen and (max-width: 465px) {
+  /* For narrow screens: */
+	.workOrderListItem {
+		width: 100%;
+		margin: 20px 0;
+	}
+}
