@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - mobile bottom nav </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="page">
+  <div class="url-bar" contenteditable="true">pretent-im-a-mobile-browser.com<i class="fa fa-times-circle"></i></div>
+  <div class="content">
+    <h1>
+       Do not use <code>100vh</code> in mobile devices! </h1>
+    <h2>
+       The problem explained, and the solution</h2>
+    <p>
+       Try open this page on a phone, with the <a href="https://codepen.io/suekam/full/ExVdPRj" target="_blank">Full Page View.</a> You'll see the bottom nav off screen. It only shows up if you scroll down to the very bottom of this page - and then one more looonng haard drag. But after the nav's back, it stays here. </p>
+    <p>Long story short, phone browsers calculate <code>vh</code> differently, and its intentional. So your bottom sticky navigation bar design is not a good idea, according to browser engineers.</p>
+    <p>Unfortunately, the only fix is JavaScript. Replace all the <code>100vh</code>'s to <code>`${window.innerHeight/100 * 100}px`</code> and viola. The bottom nav is back!</p>
+    <button class="button" id="magic">click me to do the JavaScript magic!</button>
+    <p><code></code></p>
+    <p>
+       Below are a few articles that explained it in details. You can see people had been documenting this since 2018 and the latest post is from Feb 2020. </p>
+    <ul class="list">
+      <li class="list__item"><a href="https://dev.to/admitkard/mobile-issue-with-100vh-height-100-100vh-3-solutions-3nae" target="_blank">Mobile issue with 100vh | height: 100% !== 100vh [3 solutions ...</a>
+        <p>
+           14 févr. 2020 - Mobile issue with 100vh | height: 100% !== 100vh [3 solutions] Use 100% instead of 100vh - “DOM tree nightmare” Now the quickest, and most CSS way is to use 100% in your page for the whole DOM tree till your target element: Use JS window. Use custom vh (CSS variable) - best of both worlds.</p>
+      </li>
+      <li class="list__item"><a href="https://css-tricks.com/the-trick-to-viewport-units-on-mobile/" target="_blank">The trick to viewport units on mobile | CSS-Tricks</a>
+        <p>
+           1 août 2018 - With mobile devices, we're often concerned with the vertical height, so let's ... .my-element { height: 100vh; /* Fallback for browsers that do not ...</p>
+      </li>
+      <li class="list__item"><a href="https://chanind.github.io/javascript/2019/09/28/avoid-100vh-on-mobile-web.html" target="_blank">Avoid 100vh On Mobile Web | chanind.github.io</a>
+        <p>
+           28 sept. 2019 - Viewport units in CSS sound great. If you want to style an element to take up the full screen height, you can just set height: 100vh and voila ...</p>
+      </li>
+    </ul>
+  </div>
+  <div class="nav"><a class="nav__link" href="javascript:;"><i class="fa fa-home"></i>Home</a><a class="nav__link nav__link--active" href="javascript:;"><i class="fa fa-star"></i>Featured</a><a class="nav__link" href="javascript:;"><i class="fa fa-bell"></i>News</a><a class="nav__link" href="javascript:;"><i class="fa fa-user"></i>My Account</a></div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
