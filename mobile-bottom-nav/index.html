@@ -2,11 +2,10 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - mobile bottom nav </title>
+  <title>CodePen - The famous mobile 100vh problem demonstrated</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
 </head>
@@ -16,15 +15,13 @@
   <div class="url-bar" contenteditable="true">pretent-im-a-mobile-browser.com<i class="fa fa-times-circle"></i></div>
   <div class="content">
     <h1>
-       Do not use <code>100vh</code> in mobile devices! </h1>
-    <h2>
-       The problem explained, and the solution</h2>
+       The famous mobile <code>100vh</code> problem demonstrated</h1>
     <p>
-       Try open this page on a phone, with the <a href="https://codepen.io/suekam/full/ExVdPRj" target="_blank">Full Page View.</a> You'll see the bottom nav off screen. It only shows up if you scroll down to the very bottom of this page - and then one more looonng haard drag. But after the nav's back, it stays here. </p>
-    <p>Long story short, phone browsers calculate <code>vh</code> differently, and its intentional. So your bottom sticky navigation bar design is not a good idea, according to browser engineers.</p>
-    <p>Unfortunately, the only fix is JavaScript. Replace all the <code>100vh</code>'s to <code>`${window.innerHeight/100 * 100}px`</code> and viola. The bottom nav is back!</p>
+       Open <a href="https://suekam.github.io/mobile-bottom-nav/index.html" target="_blank">this page</a> on a phone. You'll see the bottom nav off screen. It only shows up if you scroll down to the very bottom of this page - and then one more looonng haard drag. But after the nav's back, it stays here. </p>
+    <p>Long story short, phone browsers calculate <code>vh</code> differently, and <a href="https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser" target="_blank">it is intentional</a>. So your bottom sticky navigation bar design is not a good idea, according to browser engineers.</p>
+    <p>Unfortunately, sometimes we have to make the design work. The only fix is JavaScript. Replace all the <code>100vh</code>'s to <code>`${window.innerHeight/100 * 100}px`</code> and viola. The bottom nav is back!</p>
     <button class="button" id="magic">click me to do the JavaScript magic!</button>
-    <p><code></code></p>
+    <p>Of course you can do it nicely with CSS Variables <code>var(--vh, 1vh)</code>, or burtally when you're doing React with inline CSS... depending on the project really. </p>
     <p>
        Below are a few articles that explained it in details. You can see people had been documenting this since 2018 and the latest post is from Feb 2020. </p>
     <ul class="list">
@@ -42,10 +39,10 @@
       </li>
     </ul>
   </div>
-  <div class="nav"><a class="nav__link" href="javascript:;"><i class="fa fa-home"></i>Home</a><a class="nav__link nav__link--active" href="javascript:;"><i class="fa fa-star"></i>Featured</a><a class="nav__link" href="javascript:;"><i class="fa fa-bell"></i>News</a><a class="nav__link" href="javascript:;"><i class="fa fa-user"></i>My Account</a></div>
+  <div class="nav"><a class="nav__link" href="javascript:;"><i class="fa fa-home"></i>I am</a><a class="nav__link nav__link--active" href="javascript:;"><i class="fa fa-star"></i>an example</a><a class="nav__link" href="javascript:;"><i class="fa fa-bell"></i>bottom</a><a class="nav__link" href="javascript:;"><i class="fa fa-user"></i>navigation</a></div>
 </div>
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js'></script><script  src="./script.js"></script>
+  <script  src="./script.js"></script>
 
 </body>
 </html>
